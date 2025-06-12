@@ -43,14 +43,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Nosso Joguinho de Amor!")
 clock = pygame.time.Clock()
 
-try:
-    pygame.mixer.music.load(ASSETS['music'])
-    pygame.mixer.music.play(-1)
-except pygame.error as e:
-    print(f"Erro ao carregar ou tocar música: {e}")
-    print("Certifique-se de que o arquivo 'music.mp3' está na pasta 'assets' e não está corrompido.")
-
-
 FONT_DEFAULT = pygame.font.Font(None, 74)
 FONT_SMALL = pygame.font.Font(None, 48)
 
@@ -79,6 +71,13 @@ ASSETS = {
     'game_over_sound': os.path.join('assets', 'game_over_sound.wav'),
     'win_sound': os.path.join('assets', 'win_sound.wav')
 }
+
+try:
+    pygame.mixer.music.load(ASSETS['music'])
+    pygame.mixer.music.play(-1)
+except pygame.error as e:
+    print(f"Erro ao carregar ou tocar música: {e}")
+    print("Certifique-se de que o arquivo 'music.mp3' está na pasta 'assets' e não está corrompido.")
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
